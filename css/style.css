@@ -6,12 +6,8 @@ body {
     background-color: #EEEEEE;
 }
 
-h1 {
-    font-family: Righteous;
-    font-size: 44px;
-    line-height: 55px;
-    letter-spacing: -0.012em;
-    color: #FFFFFF;
+strong {
+    font-weight: bold;
 }
 
 header {
@@ -25,6 +21,14 @@ header {
     z-index: 1;
 }
 
+header h1 {
+    font-family: Righteous;
+    font-size: 44px;
+    line-height: 55px;
+    letter-spacing: -0.012em;
+    color: #FFFFFF;
+}
+
 header span {
     font-family: Roboto;
     font-size: 18px;
@@ -33,7 +37,7 @@ header span {
 }
 
 main {
-    margin: 165px 0px 108px 19px;
+    margin: 165px 0px 108px 0px;
 }
 
 main h2 {
@@ -42,32 +46,31 @@ main h2 {
     line-height: 32px;
     letter-spacing: 0.018em;
     color: #333333;
+    margin-left: 19px;
 }
 
-.options {
+.opcoes {
     display: flex;
     justify-content: flex-start;
     gap: 16px;
     overflow-x: scroll;
     margin-top: 17px;
-    margin-bottom: 27px;
+    margin-bottom: 10px;
+    padding-bottom: 17px;
+    padding-left: 19px;
+    padding-right: 19px;
 }
 
-.option {
+.opcao {
     background: #FFFFFF;
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
     border-radius: 9px;
-    padding-top: 18px;
-    padding-left: 14px;
-    padding-right: 14px;
-    padding-bottom: 14px;
-    width: 172px;
-    min-width: 172px;
+    padding: 18px 14px 14px 14px;
+    max-width: 172px;
     position: relative;
-    /* z-index: -1; */
 }
 
-.option img {
+.opcao img {
     width: 144px;
     height: 87px;
     object-fit: cover;
@@ -75,7 +78,7 @@ main h2 {
     border-radius: 4px;
 }
 
-.option h3 {
+.opcao h3 {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -85,7 +88,7 @@ main h2 {
     margin-bottom: 4px;
 }
 
-.item-description {
+.opcao__descricao {
     font-family: Roboto;
     font-weight: 300;
     font-size: 15px;
@@ -94,13 +97,24 @@ main h2 {
     margin-bottom: 28px;
 }
 
-.price {
+.opcao__base {
+    width: 144px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 15px;
+}
+
+.opcao__base__preco {
     font-family: Roboto;
     font-size: 16px;
     line-height: 19px;
     color: #000000;
-    position: absolute;
-    bottom: 15px;
+}
+
+.opcao ion-icon {
+    display: none;
 }
 
 footer {
@@ -126,10 +140,108 @@ footer button {
     border: none;
 }
 
-.selecionado {
-    background-color: green;
+.tela-branca-opaca{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(250,250,250,0.9);
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.fechar-pedido {
-    background-color: green;
+.body__impedir-rolagem-vertical {
+    overflow-y: hidden;
+}
+
+.confirmar-pedido {
+    background: #50D074;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    max-width: fit-content;
+}
+
+.confirmar-pedido p {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    color: #FFFFFF;
+    align-self: center;
+    margin-bottom: 28px;
+}
+
+.confirmar-pedido div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 13px;
+}
+
+.confirmar-pedido span {
+    font-family: Roboto;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.018em;
+    color: #FFFFFF;
+
+}
+
+.botao-confirmar-pedido {
+    background: #FFFFFF;
+    border-radius: 100px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px 40px;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.018em;
+    color: #50D074;
+}
+
+.botao-cancelar-pedido {
+    background: #50D074;
+    border: none;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.018em;
+    color: #FFFFFF;
+    width: fit-content;
+    align-self: center;
+}
+
+.opcao--selecionada {
+    border: 5px solid #32B72F;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 13px 9px 9px 9px;
+}
+
+.opcao--selecionada .opcao__base {
+    bottom: 10px;
+}
+
+.opcao--selecionada ion-icon {
+    color: #32B72F;
+    display: inline;
+    width: 18px;
+    height: 18px;
+}
+
+.botao-fechar-pedido--habilitado {
+    background-color: #32B72F;
+}
+
+.desaparecer {
+    display: none;
 }
